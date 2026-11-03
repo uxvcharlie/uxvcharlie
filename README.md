@@ -1,7 +1,4 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=waving&section=header&height=200&color=0:6e4a72,50:8e3a55,100:a33b4c&text=Charlie&fontSize=72&fontAlignY=36&desc=Systems%20Engineering%20student%20%C2%B7%20work%20in%20progress&descSize=18&descAlignY=58&animation=fadeIn&fontColor=efe6ea" />
-  <img src="https://capsule-render.vercel.app/api?type=waving&section=header&height=200&color=0:6e4a72,50:8e3a55,100:a33b4c&text=Charlie&fontSize=72&fontAlignY=36&desc=Systems%20Engineering%20student%20%C2%B7%20work%20in%20progress&descSize=18&descAlignY=58&animation=fadeIn&fontColor=2b1d27" width="100%" alt="Charlie · Systems Engineering student · work in progress" />
-</picture>
+<img src="assets/banner.png" width="100%" alt="Mellon Collie and the Infinite Sadness en ASCII art" />
 
 <div align="center">
 
