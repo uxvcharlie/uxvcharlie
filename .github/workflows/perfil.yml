@@ -5,7 +5,9 @@ on:
     - cron: "0 6 * * *"   # todos los días, 00:00 en Nicaragua
   workflow_dispatch:
   issues:
-    types: [opened]       # muro de visitantes: un issue que empieza con "firmar"
+    # Muro de visitantes: cualquier issue nuevo es una firma, sin importar el título
+    # (la gente lo cambia por su nombre). Reabrir un issue vuelve a firmar.
+    types: [opened, reopened]
 
 permissions:
   contents: write
@@ -18,8 +20,6 @@ concurrency:
 
 jobs:
   generar:
-    # Con issues, solo los de firma (startsWith no distingue mayúsculas: "Firmar" también vale).
-    if: github.event_name != 'issues' || startsWith(github.event.issue.title, 'firmar')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
