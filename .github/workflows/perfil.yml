@@ -65,6 +65,12 @@ jobs:
           python .github/scripts/repos/repos.py ${{ github.repository_owner }} \
             .github/scripts/repos/repos.json -o /tmp/salida
 
+      - name: Lenguajes (df -h)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python .github/scripts/lenguajes/lenguajes.py ${{ github.repository_owner }} -o /tmp/salida/lenguajes.svg
+
       - name: Muro de visitantes
         run: |
           python .github/scripts/visitantes/muro.py .github/scripts/visitantes/firmas.json \
