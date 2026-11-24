@@ -1,5 +1,7 @@
 <img src="assets/banner.png" width="100%" alt="Mellon Collie and the Infinite Sadness en ASCII art" />
 
+<img src="assets/glitch-nombre.svg" width="100%" alt="uxvcharlie" />
+
 
 
 ---
@@ -12,6 +14,11 @@
 ---
 
 <img src="https://raw.githubusercontent.com/uxvcharlie/uxvcharlie/output/neofetch.svg" alt="uxvcharlie@arch: fastfetch con datos de GitHub" />
+
+<a href="https://uxvcharlie.github.io/Rock-n-Bot/"><img src="https://raw.githubusercontent.com/uxvcharlie/uxvcharlie/output/repo-robosim-3d.svg" width="49%" alt="robosim-3d: simulador 3D de robots educativos" /></a>
+<a href="https://github.com/uxvcharlie/imagen-a-ascii"><img src="https://raw.githubusercontent.com/uxvcharlie/uxvcharlie/output/repo-imagen-a-ascii.svg" width="49%" alt="imagen-a-ascii" /></a>
+<img src="https://raw.githubusercontent.com/uxvcharlie/uxvcharlie/output/repo-visor-life360.svg" width="49%" alt="visor-life360 (privado)" />
+<a href="https://github.com/uxvcharlie/uamvirtual-calendario"><img src="https://raw.githubusercontent.com/uxvcharlie/uxvcharlie/output/repo-uamvirtual-calendario.svg" width="49%" alt="uamvirtual-calendario" /></a>
 
 
 <img src="https://raw.githubusercontent.com/uxvcharlie/uxvcharlie/output/nave-vino.gif" width="100%" alt="Contribuciones de uxvcharlie como juego de naves" />
