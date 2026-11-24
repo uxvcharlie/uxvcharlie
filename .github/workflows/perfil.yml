@@ -28,6 +28,13 @@ jobs:
             --kernel "Linux 7.2.14-arch1-1" \
             -o /tmp/salida/neofetch.svg
 
+      - name: Tarjetas de repos
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python .github/scripts/repos/repos.py ${{ github.repository_owner }} \
+            .github/scripts/repos/repos.json -o /tmp/salida
+
       - name: Nave vino
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,30 @@
+[
+  {
+    "repo": "Rock-n-Bot",
+    "titulo": "robosim-3d",
+    "descripcion": "Simulador 3D para armar, programar y probar robots educativos sin necesidad de un kit físico.",
+    "lenguaje": "Rust",
+    "privado": true,
+    "enlace": "https://uxvcharlie.github.io/Rock-n-Bot/",
+    "nota": "demo en el navegador"
+  },
+  {
+    "repo": "imagen-a-ascii",
+    "titulo": "imagen-a-ascii",
+    "descripcion": "Convierte imágenes en ASCII art a color, desde la terminal o una página web.",
+    "lenguaje": "Python"
+  },
+  {
+    "repo": "visor-life360",
+    "titulo": "visor-life360",
+    "descripcion": "Visor no oficial de Life360 para la compu: tu círculo en un mapa, sin el teléfono.",
+    "lenguaje": "Python",
+    "privado": true
+  },
+  {
+    "repo": "uamvirtual-calendario",
+    "titulo": "uamvirtual-calendario",
+    "descripcion": "Todo lo que publican tus profesores en UAM Virtual, en tu Google Calendar. Sin servidores.",
+    "lenguaje": "JavaScript"
+  }
+]
