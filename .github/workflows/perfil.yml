@@ -77,6 +77,12 @@ jobs:
         run: |
           python .github/scripts/constelacion/constelacion.py ${{ github.repository_owner }} -o /tmp/salida/constelacion.svg
 
+      - name: Acuario de repos
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python .github/scripts/acuario/acuario.py ${{ github.repository_owner }} -o /tmp/salida/acuario.svg
+
       - name: Faro
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
