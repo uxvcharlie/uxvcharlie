@@ -14,6 +14,8 @@
 <img src="https://raw.githubusercontent.com/uxvcharlie/uxvcharlie/output/repo-visor-life360.svg" width="49%" alt="visor-life360 (privado)" />
 <a href="https://github.com/uxvcharlie/uamvirtual-calendario"><img src="https://raw.githubusercontent.com/uxvcharlie/uxvcharlie/output/repo-uamvirtual-calendario.svg" width="49%" alt="uamvirtual-calendario" /></a>
 
+<img src="https://raw.githubusercontent.com/uxvcharlie/uxvcharlie/output/constelacion.svg" width="100%" alt="Constelación de repos: cada repo público es una estrella, Java es la más grande" />
+
 <img src="assets/divisor-actividad.svg" width="100%" alt="~/actividad" />
 
 <img src="https://raw.githubusercontent.com/uxvcharlie/uxvcharlie/output/lenguajes.svg" width="100%" alt="df -h de los lenguajes de uxvcharlie: Java, Python, HTML, TypeScript, JavaScript y CSS" />
