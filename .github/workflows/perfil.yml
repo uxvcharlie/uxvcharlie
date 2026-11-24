@@ -1,0 +1,48 @@
+name: Perfil
+
+on:
+  schedule:
+    - cron: "0 6 * * *"   # todos los días, 00:00 en Nicaragua
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+
+      - name: Tarjeta neofetch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p /tmp/salida
+          python .github/scripts/neofetch/tarjeta.py ${{ github.repository_owner }} \
+            --arte .github/scripts/neofetch/arte-avatar.json \
+            --kernel "Linux 7.2.14-arch1-1" \
+            -o /tmp/salida/neofetch.svg
+
+      - name: Nave vino
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          pip install gh-space-shooter==2.0.5
+          python .github/scripts/nave_vino.py --tema rosa ${{ github.repository_owner }} --fps 30 -o /tmp/salida/nave-vino.gif
+
+      # Todo va a una rama aparte con un solo commit, reemplazado cada día:
+      # así main no acumula cientos de archivos viejos en el historial.
+      - name: Publicar en la rama output
+        run: |
+          cd /tmp/salida
+          git init -q -b output
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "perfil del $(date -u +%F)"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" output
