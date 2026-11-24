@@ -28,5 +28,7 @@
 
 <img src="https://skillicons.dev/icons?i=java,py,linux,arch&theme=dark" alt="Java, Python, Linux, Arch Linux" />
 
+<img src="https://contador-visitas.cruvasquez.workers.dev/" alt="visitas al perfil" />
+
 
 </div>
