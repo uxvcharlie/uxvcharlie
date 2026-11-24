@@ -77,6 +77,16 @@ jobs:
         run: |
           python .github/scripts/constelacion/constelacion.py ${{ github.repository_owner }} -o /tmp/salida/constelacion.svg
 
+      - name: Faro
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python .github/scripts/faro/faro.py ${{ github.repository_owner }} -o /tmp/salida/faro.svg
+
+      - name: Mapa de Nicaragua
+        run: |
+          python .github/scripts/mapa/mapa.py -o /tmp/salida/mapa.svg
+
       - name: Muro de visitantes
         run: |
           python .github/scripts/visitantes/muro.py .github/scripts/visitantes/firmas.json \
