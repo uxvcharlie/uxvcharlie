@@ -4,19 +4,49 @@ on:
   schedule:
     - cron: "0 6 * * *"   # todos los días, 00:00 en Nicaragua
   workflow_dispatch:
+  issues:
+    types: [opened]       # muro de visitantes: un issue que empieza con "firmar"
 
 permissions:
   contents: write
+  issues: write
+
+# Una corrida a la vez: si dos personas firman juntas, la segunda espera a la primera.
+concurrency:
+  group: perfil
+  cancel-in-progress: false
 
 jobs:
   generar:
+    # Con issues, solo los de firma (startsWith no distingue mayúsculas: "Firmar" también vale).
+    if: github.event_name != 'issues' || startsWith(github.event.issue.title, 'firmar')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          ref: main
 
       - uses: actions/setup-python@v7
         with:
           python-version: "3.13"
+
+      - name: Registrar firma
+        if: github.event_name == 'issues'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NUMERO: ${{ github.event.issue.number }}
+        run: |
+          pip install "imagen-a-ascii @ git+https://github.com/uxvcharlie/imagen-a-ascii@6d8682734ceca93a315378f1c214b3604a0491a5"
+          # firmar.py lee el issue del evento y rechaza nombres raros antes de tocar nada.
+          python .github/scripts/visitantes/firmar.py .github/scripts/visitantes/firmas.json | tee /tmp/firma.txt
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/scripts/visitantes/firmas.json
+          git commit -q -m "$(cat /tmp/firma.txt)"
+          git pull -q --rebase origin main
+          git push -q origin main
+          gh issue comment "$NUMERO" --body "Gracias por firmar. Tu avatar ya está en el muro de visitantes del perfil, en ASCII. Puede tardar unos minutos en verse."
+          gh issue close "$NUMERO" --reason completed
 
       - name: Tarjeta neofetch
         env:
@@ -34,6 +64,11 @@ jobs:
         run: |
           python .github/scripts/repos/repos.py ${{ github.repository_owner }} \
             .github/scripts/repos/repos.json -o /tmp/salida
+
+      - name: Muro de visitantes
+        run: |
+          python .github/scripts/visitantes/muro.py .github/scripts/visitantes/firmas.json \
+            -o /tmp/salida/visitantes.svg
 
       - name: Nave vino
         env:

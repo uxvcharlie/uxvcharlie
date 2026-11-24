@@ -111,11 +111,31 @@ def construir(usuario: str, kernel: str, arte: list, d: dict) -> str:
     col_info = cols_arte + 3
     piezas = []
 
+    # Arranque tipo systemd con datos reales; al terminar se borra y empieza fastfetch.
+    ok = [("[  ", GRIS, False), ("OK", CLAVE, True), ("  ] ", GRIS, False)]
+    arranque = [
+        [("Welcome to ", TEXTO, False), ("Arch Linux", ROSA, True), ("!", TEXTO, False)],
+        [],
+        ok + [("Started ", TEXTO, False), (f"{usuario}.service", ROSA, False), (".", TEXTO, False)],
+        ok + [("Mounted ", TEXTO, False), (f"/home/{usuario}/proyectos", ROSA, False),
+              (f" ({d['repos']}).", TEXTO, False)],
+        ok + [("Reached target ", TEXTO, False), ("contributions", ROSA, False),
+              (f" ({d['contribuciones']:,}).", TEXTO, False)],
+        ok + [("Started ", TEXTO, False), ("nave.service", ROSA, False), (".", TEXTO, False)],
+        ok + [("Started ", TEXTO, False), ("spotify.service", ROSA, False), (".", TEXTO, False)],
+        ok + [("Listening on ", TEXTO, False), ("visitantes.socket", ROSA, False), (".", TEXTO, False)],
+        ok + [("Reached target ", TEXTO, False), ("multi-user.target", ROSA, False), (".", TEXTO, False)],
+    ]
+    lineas = [texto(0, i, linea, 0.15 + i * 0.13) for i, linea in enumerate(arranque) if linea]
+    fin_arranque = 0.15 + len(arranque) * 0.13 + 0.55
+    piezas.append(f'<g class="boot" style="animation-delay:{fin_arranque:.2f}s">' + "".join(lineas) + "</g>")
+
     # Línea 0: el comando, letra por letra.
-    piezas.append(texto(0, 0, [("~ ", ROSA, True), ("$ ", GRIS, False)], 0.1))
+    inicio = fin_arranque + 0.3
+    piezas.append(texto(0, 0, [("~ ", ROSA, True), ("$ ", GRIS, False)], inicio))
     for i, letra in enumerate("fastfetch"):
-        piezas.append(texto(4 + i, 0, [(letra, TEXTO, False)], 0.35 + i * 0.06))
-    salida = 0.35 + 9 * 0.06 + 0.25
+        piezas.append(texto(4 + i, 0, [(letra, TEXTO, False)], inicio + 0.25 + i * 0.06))
+    salida = inicio + 0.25 + 9 * 0.06 + 0.25
 
     # Arte: cada tramo con su color, en su columna (los espacios no se dibujan).
     for f, fila in enumerate(arte):
@@ -170,7 +190,10 @@ def construir(usuario: str, kernel: str, arte: list, d: dict) -> str:
         ".cursor{opacity:0;animation:parpadea 1.1s steps(1) infinite}"
         "@keyframes ve{to{opacity:1}}"
         "@keyframes parpadea{0%{opacity:1}50%{opacity:0}}"
-        "@media (prefers-reduced-motion:reduce){text,.b{animation:none;opacity:1}.cursor{animation:none;opacity:1}}"
+        ".boot{animation:fuera .2s ease-out forwards}"
+        "@keyframes fuera{to{opacity:0}}"
+        "@media (prefers-reduced-motion:reduce){text,.b{animation:none;opacity:1}.cursor{animation:none;opacity:1}"
+        ".boot{display:none}}"
     )
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{ancho}" height="{alto}" viewBox="0 0 {ancho} {alto}">\n'
