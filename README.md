@@ -11,6 +11,8 @@
 
 ---
 
+<img src="https://raw.githubusercontent.com/uxvcharlie/uxvcharlie/output/neofetch.svg" alt="uxvcharlie@arch: fastfetch con datos de GitHub" />
+
 
 <img src="https://raw.githubusercontent.com/uxvcharlie/uxvcharlie/output/nave-vino.gif" width="100%" alt="Contribuciones de uxvcharlie como juego de naves" />
 
