@@ -1,0 +1,38 @@
+name: Nave vino
+
+on:
+  schedule:
+    - cron: "0 6 * * *"   # todos los días, 00:00 en Nicaragua
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+
+      - name: Generar GIF
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          pip install gh-space-shooter==2.0.5
+          python .github/scripts/nave_vino.py --tema rosa ${{ github.repository_owner }} --fps 30 -o /tmp/nave-vino.gif
+
+      # El GIF va a una rama aparte con un solo commit, reemplazado cada día:
+      # así main no acumula cientos de GIF en el historial.
+      - name: Publicar en la rama output
+        run: |
+          cd /tmp && mkdir salida && mv nave-vino.gif salida/ && cd salida
+          git init -q -b output
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add nave-vino.gif
+          git commit -q -m "nave vino del $(date -u +%F)"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" output

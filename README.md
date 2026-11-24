@@ -11,4 +11,6 @@
 
 <img src="https://skillicons.dev/icons?i=java,py,linux,arch&theme=dark" alt="Java, Python, Linux, Arch Linux" />
 
+<img src="https://raw.githubusercontent.com/uxvcharlie/uxvcharlie/output/nave-vino.gif" width="100%" alt="Contribuciones de uxvcharlie como juego de naves" />
+
 </div>
