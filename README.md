@@ -16,6 +16,8 @@
 
 <img src="assets/divisor-actividad.svg" width="100%" alt="~/actividad" />
 
+<img src="https://raw.githubusercontent.com/uxvcharlie/uxvcharlie/output/lenguajes.svg" width="100%" alt="df -h de los lenguajes de uxvcharlie: Java, Python, HTML, TypeScript, JavaScript y CSS" />
+
 <img src="https://raw.githubusercontent.com/uxvcharlie/uxvcharlie/output/nave-vino.gif" width="100%" alt="Contribuciones de uxvcharlie como juego de naves" />
 
 <img src="assets/divisor-sonando.svg" width="100%" alt="~/sonando" />
