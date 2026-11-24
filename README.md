@@ -16,6 +16,8 @@
 
 <img src="https://raw.githubusercontent.com/uxvcharlie/uxvcharlie/output/constelacion.svg" width="100%" alt="Constelación de repos: cada repo público es una estrella, Java es la más grande" />
 
+<img src="https://raw.githubusercontent.com/uxvcharlie/uxvcharlie/output/acuario.svg" width="100%" alt="Acuario de repos: cada repo público es un pez, los inactivos duermen en el fondo" />
+
 <img src="assets/divisor-actividad.svg" width="100%" alt="~/actividad" />
 
 <img src="https://raw.githubusercontent.com/uxvcharlie/uxvcharlie/output/lenguajes.svg" width="100%" alt="df -h de los lenguajes de uxvcharlie: Java, Python, HTML, TypeScript, JavaScript y CSS" />
