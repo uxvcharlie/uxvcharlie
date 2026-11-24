@@ -3,7 +3,7 @@
 
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=18&duration=2800&pause=900&color=B0566F&center=true&vCenter=true&width=520&lines=%24+whoami;uxvcharlie+%C2%B7+arch+%2B+hyprland;java+%C2%B7+python+%C2%B7+sql+%C2%B7+rust+%C2%B7+ kotlin" />
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=18&duration=2800&pause=900&color=B0566F&center=true&vCenter=true&width=520&lines=%24+whoami;uxvcharlie+%C2%B7+arch+%2B+hyprland;java+%C2%B7+python+%C2%B7+sql+%C2%B7+rust+%C2%B7+kotlin" />
 
 <img src="https://raw.githubusercontent.com/uxvcharlie/uxvcharlie/output/neofetch.svg" width="100%" alt="uxvcharlie@arch: fastfetch con datos de GitHub" />
 
