@@ -22,6 +22,10 @@
 
 [![spotify-github-profile](https://delicate-morning-4cf2.cruvasquez.workers.dev/?uid=31iux7plduagjm2i3hice7rnhg2a&cover_image=true&show_offline=false&background_color=0d1117&interchange=false&profanity=false&hide_remaster=false&paleta=vino)](https://github.com/kittinan/spotify-github-profile)
 
+<img src="assets/divisor-visitantes.svg" width="100%" alt="~/visitantes" />
+
+<a href="https://github.com/uxvcharlie/uxvcharlie/issues/new?title=firmar&body=Firmo+el+muro+de+visitantes."><img src="https://raw.githubusercontent.com/uxvcharlie/uxvcharlie/output/visitantes.svg" width="100%" alt="Muro de visitantes: tocá para firmar" /></a>
+
 <img src="https://skillicons.dev/icons?i=java,py,rust,linux,arch&theme=dark" alt="Java, Python, Rust, Linux, Arch Linux" />
 <img src="https://contador-visitas.cruvasquez.workers.dev/" alt="visitas al perfil" />
 
