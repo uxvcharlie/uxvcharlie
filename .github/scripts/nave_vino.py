@@ -56,6 +56,40 @@ def _contexto_vino(tema: str):
     return staticmethod(darkmode)
 
 
+def _con_marco(render_frame):
+    """Dibuja en cada cuadro el borde redondeado vino → ciruela de las demás tarjetas del README."""
+    from PIL import Image, ImageDraw
+
+    marco = {}
+
+    def envuelto(self):
+        cuadro = render_frame(self)
+        if "capa" not in marco:
+            ancho, alto = cuadro.size
+            # Degradado en diagonal, igual al de neofetch: #b0566f arriba a la izquierda, #4f3852 abajo.
+            degradado = Image.new("RGB", (ancho, alto))
+            px = degradado.load()
+            for y in range(alto):
+                for x in range(ancho):
+                    t = (x / ancho + y / alto) / 2
+                    px[x, y] = tuple(round(a + (b - a) * t) for a, b in zip((176, 86, 111), (79, 56, 82)))
+            mascara = Image.new("L", (ancho, alto), 0)
+            ImageDraw.Draw(mascara).rounded_rectangle(
+                (1, 1, ancho - 2, alto - 2), radius=10, outline=255, width=2)
+            # Las esquinas por fuera del redondeo quedan del color del fondo de GitHub.
+            esquinas = Image.new("L", (ancho, alto), 255)
+            ImageDraw.Draw(esquinas).rounded_rectangle((0, 0, ancho - 1, alto - 1), radius=11, fill=0)
+            marco["capa"], marco["mascara"], marco["esquinas"] = degradado, mascara, esquinas
+        cuadro.paste(FONDO, mask=marco["esquinas"])
+        cuadro.paste(marco["capa"], mask=marco["mascara"])
+        return cuadro
+
+    return envuelto
+
+
 if __name__ == "__main__":
+    from gh_space_shooter.game.renderer import Renderer
+
     RenderContext.darkmode = _contexto_vino(_tema_desde_argv())
+    Renderer.render_frame = _con_marco(Renderer.render_frame)
     sys.exit(app())
